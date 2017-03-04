@@ -81,10 +81,10 @@ public:
     /// Bind cannot be called "inline" like other functions because it introduces order-of-initialization bugs.
     ///
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    void Bind(const SQChar* name, Object& obj) {
+    void Bind(const SQChar* name, Object& object) {
         sq_pushobject(vm, GetObject());
         sq_pushstring(vm, name, -1);
-        sq_pushobject(vm, obj.GetObject());
+        sq_pushobject(vm, object.GetObject());
         sq_newslot(vm, -3, false);
         sq_pop(vm,1); // pop table
     }

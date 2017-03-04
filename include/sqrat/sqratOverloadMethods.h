@@ -112,7 +112,7 @@ public:
 
     static SQInteger Func(HSQUIRRELVM vm) {
         // Get the arg count
-        int argCount = sq_gettop(vm) - 2;
+        int argCount = static_cast<int>(sq_gettop(vm) - 2);
 
         const SQChar* funcName;
         sq_getstring(vm, -1, &funcName); // get the function name (free variable)
